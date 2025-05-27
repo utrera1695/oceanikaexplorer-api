@@ -32,11 +32,11 @@ const hbsInstance = create({
 
 // Transporter de Nodemailer (usa Mailtrap o tu SMTP)
 const transporter = nodemailer.createTransport({
-	host: "sandbox.smtp.mailtrap.io", // Usa tu host SMTP
-	port: 587,
+	host: "oceanikacargo.jamtechcorp.com", // Usa tu host SMTP
+	port: 465 || 587, // Puerto SMTP
 	auth: {
-		user: "d53a6b817a478d",
-		pass: "5a3c252f84f87e",
+		user: "test@oceanikacargo.jamtechcorp.com",
+		pass: "21aQ2!jd6",
 	},
 });
 
@@ -63,9 +63,9 @@ app.post("/send-email", async (req, res) => {
 
 	try {
 		await transporter.sendMail({
-			from: '"Mi API" <noreply@miapi.com>',
+			from: '"Contacto" <test@oceanikacargo.jamtechcorp.com>',
 			to: body.email,
-			bcc: "noreply@miapi.com" || "",
+			bcc: "test@oceanikacargo.jamtechcorp.com" || "",
 			subject: "Solicitud de envio de carga",
 			template: "email",
 			context: {
