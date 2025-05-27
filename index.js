@@ -32,11 +32,14 @@ const hbsInstance = create({
 
 // Transporter de Nodemailer (usa Mailtrap o tu SMTP)
 const transporter = nodemailer.createTransport({
-	host: "smtp.mailgun.org", // Usa tu host SMTP
-	port: 587, // Puerto SMTP
+	host: "oceanikacargo.jamtechcorp.com", // Usa tu host SMTP
+	port: 465, // Puerto SMTP
 	auth: {
-		user: "postmaster@sandbox5230919f833f475d9d8f0a81ba50bbe6.mailgun.org",
+		user: "test@oceanikacargo.jamtechcorp.com",
 		pass: "21aQ2!jd6",
+	},
+	tls: {
+		rejectUnauthorized: false,
 	},
 });
 
@@ -55,14 +58,14 @@ app.post("/send-email", async (req, res) => {
 	const body = req.body;
 	console.log(body);
 
-	if (!body.to) {
+	if (!body.email) {
 		return res
 			.status(400)
 			.json({ error: "Faltan parámetros: to son requeridos." });
 	}
 
 	try {
-		await transporter.sendMail({
+		const result = await transporter.sendMail({
 			from: '"Contacto" <test@oceanikacargo.jamtechcorp.com>',
 			to: body.email,
 			bcc: "test@oceanikacargo.jamtechcorp.com" || "",
@@ -75,7 +78,11 @@ app.post("/send-email", async (req, res) => {
 			},
 		});
 
-		res.json({ success: true, message: "Correo enviado correctamente." });
+		res.json({
+			success: true,
+			message: "Correo enviado correctamente.",
+			result,
+		});
 	} catch (error) {
 		console.error(error);
 		res
