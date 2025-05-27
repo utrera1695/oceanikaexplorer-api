@@ -32,10 +32,10 @@ const hbsInstance = create({
 
 // Transporter de Nodemailer (usa Mailtrap o tu SMTP)
 const transporter = nodemailer.createTransport({
-	host: "oceanikacargo.jamtechcorp.com", // Usa tu host SMTP
-	port: 465 || 587, // Puerto SMTP
+	host: "smtp.mailgun.org", // Usa tu host SMTP
+	port: 587, // Puerto SMTP
 	auth: {
-		user: "test@oceanikacargo.jamtechcorp.com",
+		user: "postmaster@sandbox5230919f833f475d9d8f0a81ba50bbe6.mailgun.org",
 		pass: "21aQ2!jd6",
 	},
 });
@@ -85,7 +85,7 @@ app.post("/send-email", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-	res.render("index", {
+	res.json({
 		title: "API de Envío de Correos",
 		description:
 			"Esta es una API para enviar correos electrónicos usando Nodemailer y Handlebars.",
