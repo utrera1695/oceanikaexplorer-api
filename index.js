@@ -84,6 +84,14 @@ app.post("/send-email", async (req, res) => {
 	}
 });
 
+app.get("/", (req, res) => {
+	res.render("index", {
+		title: "API de Envío de Correos",
+		description:
+			"Esta es una API para enviar correos electrónicos usando Nodemailer y Handlebars.",
+	});
+});
+
 app.listen(PORT, () => {
 	console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
