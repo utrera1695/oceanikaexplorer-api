@@ -32,7 +32,7 @@ const hbsInstance = create({
 
 // Transporter de Nodemailer (usa Mailtrap o tu SMTP)
 const transporter = nodemailer.createTransport({
-	host: "oceanikacargo.promogo.online", // Usa tu host SMTP
+	host: "promogo.online", // Usa tu host SMTP
 	port: 465, // Puerto SMTP
 	auth: {
 		user: "test@oceanikacargo.promogo.online",
@@ -66,9 +66,9 @@ app.post("/send-email", async (req, res) => {
 
 	try {
 		const result = await transporter.sendMail({
-			from: '"Contacto" <test@oceanikacargo.promogo.online>',
+			from: '"Contacto" <victor@promogo.online>',
 			to: body.email,
-			bcc: "test@oceanikacargo.promogo.online" || "",
+			bcc: "victor@promogo.online" || "",
 			subject: "Solicitud de envio de carga",
 			template: "email",
 			context: {
