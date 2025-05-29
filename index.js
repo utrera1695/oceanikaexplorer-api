@@ -32,11 +32,11 @@ const hbsInstance = create({
 
 // Transporter de Nodemailer (usa Mailtrap o tu SMTP)
 const transporter = nodemailer.createTransport({
-	host: "oceanikacargo.jamtechcorp.com", // Usa tu host SMTP
+	host: "oceanikacargo.promogo.online", // Usa tu host SMTP
 	port: 465, // Puerto SMTP
 	auth: {
-		user: "test@oceanikacargo.jamtechcorp.com",
-		pass: "21aQ2!jd6",
+		user: "test@oceanikacargo.promogo.online",
+		pass: "7Sv_7d38g",
 	},
 	tls: {
 		rejectUnauthorized: false,
