@@ -66,9 +66,9 @@ app.post("/send-email", async (req, res) => {
 
 	try {
 		const result = await transporter.sendMail({
-			from: '"Contacto" <test@oceanikacargo.jamtechcorp.com>',
+			from: '"Contacto" <test@oceanikacargo.promogo.online>',
 			to: body.email,
-			bcc: "test@oceanikacargo.jamtechcorp.com" || "",
+			bcc: "test@oceanikacargo.promogo.online" || "",
 			subject: "Solicitud de envio de carga",
 			template: "email",
 			context: {
